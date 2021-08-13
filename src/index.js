@@ -22,6 +22,7 @@ worker.start();
 const store = createStore(reducer, applyMiddleware(thunk,logger))
 
 //3. Wrap the App component in a react-redux Provider element.
+const rootElement = document.getElementById("root");
 
 ReactDOM.render(
     <Provider store={store}>
@@ -30,6 +31,5 @@ ReactDOM.render(
     rootElement
     );
     
-const rootElement = document.getElementById("root");
 
 
