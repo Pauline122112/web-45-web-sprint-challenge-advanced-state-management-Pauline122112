@@ -23,7 +23,6 @@ export const fetchSmurfs = () => {
 }
 
 
-
 export const fetchStart = () => {
 	return ({ type: FETCH_START })
 };
