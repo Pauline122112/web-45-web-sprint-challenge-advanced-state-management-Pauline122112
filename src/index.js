@@ -6,14 +6,14 @@ import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 
 //here is the middleware
-import { logger } from 'redux-logger'
-import { thunk } from 'redux-logger'
+import logger from 'redux-logger'
+import thunk from 'redux-logger'
 
 import "./index.css";
 import App from "./App";
 
 //here is the reducer
-import reducer from './reducers'
+import reducer from './reducers/index'
 
 const { worker } = require('./mocks/browser');
 worker.start();

@@ -6,7 +6,7 @@ import { ADD_SMURF, ERROR_MESSAGE, FETCH_FAIL, FETCH_START, FETCH_SUCCESS } from
 export const initialState = {
     smurfs: [],
     isLoading: false,
-    error: ''
+    errorMessage: ''
 
 }
 //Standard reducer function
@@ -30,16 +30,20 @@ const reducer = (state = initialState, action) => {
         case FETCH_FAIL:
             return {
                 ...state,
-                error: action.payload,
                 isLoading: false,
+                error: action.payload,
             }
 //========COME BACK TO THIS===========================
         case ADD_SMURF:
+            const addSmurf = {
+                ...action.payload,
+                id: Date.now()
+            }
             return {
                 ...state,
                 smurfs: [
-                    ...state.smurfs,
-                    action.payload
+                    ...state.smurfs, addSmurf
+                    
                 ]
             }
 //========COME BACK TO THIS===========================
