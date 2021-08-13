@@ -13,46 +13,42 @@ export const initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
 
-        case FETCH_START:
-            return {
+        case (FETCH_START):
+            return ({
                 ...state, 
                 isLoading: true
-            }
+            })
         
-        case FETCH_SUCCESS:
-            return {
+        case (FETCH_SUCCESS):
+            return ({
                 ...state,
                 isLoading: false,
                 smurfs: action.payload
                 
-             }
+             })
              
-        case FETCH_FAIL:
-            return {
+        case (FETCH_FAIL):
+            return ({
                 ...state,
                 isLoading: false,
                 error: action.payload,
-            }
+            })
 //========COME BACK TO THIS===========================
-        case ADD_SMURF:
-            const addSmurf = {
-                ...action.payload,
-                id: Date.now()
-            }
-            return {
+        case (ADD_SMURF):
+            return({
                 ...state,
-                smurfs: [
-                    ...state.smurfs, addSmurf
-                    
-                ]
-            }
+                smurfs:[...state.smurfs,
+                action.payload]
+            })
+            
 //========COME BACK TO THIS===========================
-        case ERROR_MESSAGE:
-            return {
+        case (ERROR_MESSAGE):
+            return ({
                 ...state,
                 error: action.payload,
                 isLoading: false
-            }
+            })
+            
             default:
                 return state
 
